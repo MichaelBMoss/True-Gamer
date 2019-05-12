@@ -7,6 +7,23 @@ import MainPage from './components/PageComponents/MainPage/MainPage.js';
 import ReviewsPage from './components/PageComponents/ReviewsPage/ReviewsPage.js';
 
 class App extends Component {
+  
+  state = {
+  	apiData: [],
+	}
+  
+	componentDidMount() {
+		fetch("/api/some/example/route/")
+			.then(response => response.json())
+			.then(data => {
+				console.log("got data", data);
+				this.setState({
+					apiData: data,
+				});
+			});
+		console.log('fetch');
+	}
+  
   render() {
     return (
       <div className="App">
@@ -22,7 +39,6 @@ class App extends Component {
             <Route exact path='/ReviewsPage/' component={ReviewsPage} />
           </Switch>
         </div>
-
       </div>
     );
   }

@@ -6,23 +6,39 @@ const ObjectId = require('mongodb').ObjectId;
 const app = express();
 app.use(express.json());
 
-/// YOUR ROUTES GO HERE!
-axios({
-  url: "https://api-v3.igdb.com/games/",
-  method: 'POST',
-  headers: {
-      'Accept': 'application/json',
-      'user-key': "ff39cd10fb80e5920517d94fa9b2f558"
-  },
-  data: "fields name; limit 10;"
-})
+
+
+//
+// Example route (without use of MongoDB)
+app.get('/api/some/example/route/', (request, res) => {
+  console.log('Example route is being used...');
+  /// YOUR ROUTES GO HERE!
+  axios({
+    url: "https://api-v3.igdb.com/games/",
+    method: 'POST',
+    headers: {
+        'Accept': 'application/json',
+        'user-key': "ff39cd10fb80e5920517d94fa9b2f558"
+    },
+    data: "fields name; limit 10;"
+  })
   .then(response => {
-      console.log(response.data);
+      
+      
+      res.json(response.data);
   })
   .catch(err => {
       console.error(err);
   });
+  
+  
+  
+  
+  
+});
 
+
+//
 /////////////////////////////////////////////
 
 // Totally insecure backend routes below, good only for rapid prototyping

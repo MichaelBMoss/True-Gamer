@@ -1,18 +1,18 @@
-.MainPage {
-  text-align: center;
-}
-
-.MainPage-header {
-  background-color: #282c34;
-  min-height: 70vh;
+.mpContentOuterBox {
+  width: 100%;
+  height: 90%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
 }
 
-.MainPage a {
-  color: #61dafb;
+.mpContentInnerBox {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background: blue;
+  font-size: 100pt;
 }

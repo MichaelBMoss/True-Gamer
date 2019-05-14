@@ -26,19 +26,20 @@ class App extends Component {
   
   render() {
     return (
-      <div className="App">
-        <nav className="App-navigation">
-          <h1 className="App-title">True Gamer</h1>
-          <Link to="/">Home</Link>
-          <Link to="/ReviewsPage/">Reviews</Link>
+      <div className="aApp">
+        <nav className="aHeader">
+          <div className="aLogoBox">
+            <Link to="/" className="aLogo">True Gamer</Link>
+          </div>
+          <div className="aLinkBox">
+            <Link to="/" className="aNavLink">Home</Link>
+            <Link to="/ReviewsPage/" className="aNavLink">Reviews</Link>
+          </div> {/* end LinkBox */}
         </nav>
-
-        <div className="App-mainContent">
-          <Switch>
-            <Route exact path='/' component={MainPage} />
-            <Route exact path='/ReviewsPage/' component={ReviewsPage} />
-          </Switch>
-        </div>
+        <Switch>
+          <Route exact path='/' component={MainPage} />
+          <Route exact path='/ReviewsPage/' component={ReviewsPage} />
+        </Switch>
       </div>
     );
   }

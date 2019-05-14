@@ -5,15 +5,12 @@ import './MainPage.css';
 class MainPage extends Component {
   render() {
     return (
-      <div className="MainPage">
-        <header className="MainPage-header">
-          <p>
-Main Page
-          </p>
-{/*          <Link to="/blog/">Blog</Link>
-          <Link to="/write/">Write article</Link> */}
-        </header>
-      </div>
+      <page className="mpMainPage">
+        <div className="mpContentOuterBox">
+          <div className="mpContentInnerBox">
+          </div>
+        </div>
+      </page>
     );
   }
 }

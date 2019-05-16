@@ -11,18 +11,19 @@ class App extends Component {
   state = {
   	apiData: [],
 	}
-  
-	componentDidMount() {
-		fetch("/api/some/example/route/")
-			.then(response => response.json())
-			.then(data => {
-				console.log("got data", data);
-				this.setState({
+
+/*	componentDidMount() {
+		fetch("/api/some/example/route/");
+			    .then(response => response.json())
+			    .then(data => {
+        console.log("got data", data);*/
+ 
+/*				this.setState({
 					apiData: data,
 				});
 			});
 		console.log('fetch');
-	}
+  }*/
   
   render() {
     return (

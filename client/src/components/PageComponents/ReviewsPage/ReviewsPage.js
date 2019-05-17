@@ -2,19 +2,21 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 
+import './reviews.js';
 import './ReviewsPage.css';
 class ReviewsPage extends Component {
+  state = {
+    reviews: [],
+  }
 
   render() {
     console.log('fetching data');
     return (
       <div className="ReviewsPage">
         <header className="ReviewsPage-header">
-          <p>Reviews Page={this.state.reviews}
-          </p>
-{/*          <Link to="/blog/">Blog</Link>
-          <Link to="/write/">Write article</Link> */}
+        <p>{this.state.reviews}</p>
         </header>
+
       </div>
     );
   }

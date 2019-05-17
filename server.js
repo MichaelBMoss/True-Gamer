@@ -7,12 +7,7 @@ const app = express();
 app.use(express.json());
 
 
-
-//
-// Example route (without use of MongoDB)
-app.get('/api/some/example/route/', (request, res) => {
-  console.log('Example route is being used...');
-  /// YOUR ROUTES GO HERE!
+app.get('/games/', (request, res) => {
   axios({
     url: "https://api-v3.igdb.com/games/",
     method: 'POST',
@@ -20,25 +15,35 @@ app.get('/api/some/example/route/', (request, res) => {
         'Accept': 'application/json',
         'user-key': "ff39cd10fb80e5920517d94fa9b2f558"
     },
-    data: "fields name; limit 10;"
+    data: "fields name,age_ratings,summary,cover,themes; sort popularity desc; limit 25;"
   })
   .then(response => {
-      
-      
       res.json(response.data);
   })
   .catch(err => {
       console.error(err);
   });
-  
-  
-  
-  
-  
+});
+
+app.get('/covers/', (request, res) => {
+  axios({
+    url: "https://api-v3.igdb.com/covers/",
+    method: 'POST',
+    headers: {
+        'Accept': 'application/json',
+        'user-key': "ff39cd10fb80e5920517d94fa9b2f558"
+    },
+    data: "fields url; sort popularity desc; limit 25;"
+  })
+  .then(response => {
+      res.json(response.data);
+  })
+  .catch(err => {
+      console.error(err);
+  });
 });
 
 
-//
 /////////////////////////////////////////////
 
 // Totally insecure backend routes below, good only for rapid prototyping

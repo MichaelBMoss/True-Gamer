@@ -9,19 +9,70 @@ import ReviewsPage from './components/PageComponents/ReviewsPage/ReviewsPage.js'
 class App extends Component {
   
   state = {
-  	apiData: [],
+  	games: [],
+  	covers: [],
+  	ageRatings: [],
 	}
   
 	componentDidMount() {
-		fetch("/api/some/example/route/")
+		fetch("/games/")
 			.then(response => response.json())
-			.then(data => {
-				console.log("got data", data);
-				this.setState({
-					apiData: data,
-				});
-			});
-		console.log('fetch');
+			.then(gamesData => {
+				console.log("got games",gamesData);
+//				console.log(Object.keys(data));
+//				for (let object of gamesData) {
+//				  if ( object.themes.includes(42) ) {
+//				    console.log('contains 42');
+//				  }
+//				}
+//				let tempIDs = []
+//				for (let object of data) {
+//				  tempIDs.push(object.id);
+//				}
+//				console.log(tempIDs);
+//			let testobject = {name: 'mike', game: 'bike',};
+//			testobject.number = '2'
+			  fetch("/covers/")
+	    	.then(response => response.json())
+	    	.then(coversData => {
+		    	console.log("got covers", coversData);
+		    	let forbiddenGames = [];
+		    	let acceptedGames = [];
+		    	for (let object of gamesData) {
+				    if (object.themes.includes(42)) {
+				      forbiddenGames.push(gamesData.indexOf(object));
+				    } else { 
+				        acceptedGames.push(object);
+				    }
+				  }
+          let i = 0;
+          for (let object of coversData) {
+            if (forbiddenGames.includes(coversData.indexOf(object)) === false) {
+              acceptedGames[i].covers = object;
+              i = (i + 1);
+            }
+          }
+          console.log(acceptedGames);
+//		    	let i = 1;
+//		    	for (let item of coversData) {
+//		    	  item.number = i;
+//		    	  i = (i + 1);
+//		    	}
+//		    	i = 1;
+//		    	for (let item of gamesData) {
+//		    	  item.number = i;
+//		    	  i = (i + 1);
+//		    	}
+		    	this.setState({
+		    	  games: gamesData,
+			    	covers: coversData,
+		    	});
+	    	});
+	    });
+  }
+	
+	sortData = () => {
+    console.log('sorting');
 	}
   
   render() {

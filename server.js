@@ -33,7 +33,7 @@ app.get('/covers/', (request, res) => {
         'Accept': 'application/json',
         'user-key': "ff39cd10fb80e5920517d94fa9b2f558"
     },
-    data: "fields url; sort popularity desc; limit 25;"
+    data: "fields image_id; where game = (112916,114455,19561,102060,22422); limit 25;"
   })
   .then(response => {
       res.json(response.data);

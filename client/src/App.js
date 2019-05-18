@@ -10,8 +10,6 @@ class App extends Component {
   
   state = {
   	games: [],
-  	covers: [],
-  	ageRatings: [],
 	}
   
 	componentDidMount() {
@@ -19,11 +17,7 @@ class App extends Component {
 			.then(response => response.json())
 			.then(gamesData => {
 				console.log("got games",gamesData);
-			  fetch("/covers/")
-	    	.then(response => response.json())
-	    	.then(coversData => {
-		    	console.log("got covers", coversData);
-		    	let forbiddenGames = [];
+					let forbiddenGames = [];
 		    	let acceptedGames = [];
 		    	for (let object of gamesData) {
 				    if (object.themes.includes(42)) {
@@ -32,13 +26,24 @@ class App extends Component {
 				        acceptedGames.push(object);
 				    }
 				  }
-          let i = 0;
-          for (let object of coversData) {
-            if (forbiddenGames.includes(coversData.indexOf(object)) === false) {
-              acceptedGames[i].covers = object;
-              i = (i + 1);
-            }
-          }
+				  let gamesIDArray = []
+				  for (let game of acceptedGames) {
+				    gamesIDArray.push(game.id)
+				  }
+				  let gameIDs = gamesIDArray.join(',');
+				  console.log('ids',gameIDs)
+//          let i = 0;
+//          for (let object of coversData) {
+//            if (forbiddenGames.includes(coversData.indexOf(object)) === false) {
+//              acceptedGames[i].covers = object.image_id;
+//              i = (i + 1);
+//            }
+//          }
+          console.log(acceptedGames)
+			  fetch("/covers/")
+	    	.then(response => response.json())
+	    	.then(coversData => {
+		    	console.log("got covers", coversData);
 		    	this.setState({
 		    	  games: acceptedGames,
 		    	});

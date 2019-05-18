@@ -1,6 +1,11 @@
 .WriteArticle input,
 .WriteArticle textarea,
 .WriteArticle button {
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}
   font-size: 24pt;
   background: none;
   color: white;
@@ -9,6 +14,16 @@
   display: block;
   border: 2px solid white;
 }
+.flex-inner {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-inner {
+  display: flex;
+  flex-direction: row;
+}
+
 
 .WriteArticle button {
   color: black;

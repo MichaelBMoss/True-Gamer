@@ -7,13 +7,13 @@ class WriteArticle extends Component {
     text: 'true gamer',
   }
 
-  onChangeContent = (ev) => {
+  onChangeReview = (ev) => {
     this.setState({
       text: ev.target.value,
     });
   }
 
-  onChangeTitle = (ev) => {
+  onChangeName = (ev) => {
     this.setState({
       title: ev.target.value,
     });
@@ -28,9 +28,11 @@ class WriteArticle extends Component {
 
 
   submit = () => {
+   console.log("games")
     const formData = {
       title: this.state.title,
       text: this.state.text,
+     
     };
 
     fetch('/api/mongodb/blogposts/', {
@@ -61,7 +63,7 @@ class WriteArticle extends Component {
           
           />
         <br />
-          <div classGame="flex-inner">
+          <div>
         <input
             name="game"
             placeholder="Game"
@@ -77,7 +79,7 @@ class WriteArticle extends Component {
             value={this.state.details}
             onChange={this.onChangeReview}
           />
-          <div classContent="flex-inner">
+          <div>
         </div>
         <br />
         

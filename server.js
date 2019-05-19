@@ -25,7 +25,13 @@ app.get('/games/', (request, res) => {
   });
 });
 
+
 app.get('/covers/', (request, res) => {
+  
+  const query = request.query || {};
+  let gameIds = query.gameIds;
+  let fields = "fields image_id; where game = (" + gameIds + "); limit 25;"
+
   axios({
     url: "https://api-v3.igdb.com/covers/",
     method: 'POST',
@@ -33,7 +39,7 @@ app.get('/covers/', (request, res) => {
         'Accept': 'application/json',
         'user-key': "ff39cd10fb80e5920517d94fa9b2f558"
     },
-    data: "fields image_id; where game = (112916,114455,19561,102060,22422); limit 25;"
+    data: fields
   })
   .then(response => {
       res.json(response.data);

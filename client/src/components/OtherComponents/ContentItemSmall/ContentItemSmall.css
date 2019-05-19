@@ -1,0 +1,26 @@
+.ContentItemSmallOuterBox {
+  height:100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  background: red;
+}
+
+.ContentItemSmallCoverImage {
+  height: auto;
+  width: 25%;
+}
+
+.ContentItemSmallText {
+  height: auto;
+  width: 70%;
+  background: green;
+}
+
+.ContentItemSmallGameName {
+}
+
+.ContentItemSmallSummary {
+}

@@ -26,27 +26,29 @@ class App extends Component {
 				        acceptedGames.push(object);
 				    }
 				  }
+				  let acceptedGamesSlice = acceptedGames.slice(0,10);
 				  let gamesIDArray = []
-				  for (let game of acceptedGames) {
+				  for (let game of acceptedGamesSlice) {
 				    gamesIDArray.push(game.id)
 				  }
 				  let gameIDs = gamesIDArray.join(',');
 				  console.log('ids',gameIDs)
-//          let i = 0;
-//          for (let object of coversData) {
-//            if (forbiddenGames.includes(coversData.indexOf(object)) === false) {
-//              acceptedGames[i].covers = object.image_id;
-//              i = (i + 1);
-//            }
-//          }
-          console.log(acceptedGames)
-			  fetch("/covers/")
+			 fetch("/covers/?gameIds=" + gameIDs)
 	    	.then(response => response.json())
 	    	.then(coversData => {
+          for (let object of coversData) {
+            for (let item of acceptedGamesSlice) {
+              if (object.id === item.cover) {
+                item.coverURL = object.image_id;
+              }
+            }
+          }
+	    	  console.log('accepted games',acceptedGamesSlice);
 		    	console.log("got covers", coversData);
 		    	this.setState({
-		    	  games: acceptedGames,
+		    	  games: acceptedGamesSlice,
 		    	});
+		    	this.render();
 	    	});
 	    });
   }
@@ -68,7 +70,11 @@ class App extends Component {
           </div> {/* end LinkBox */}
         </nav>
         <Switch>
-          <Route exact path='/' component={MainPage} />
+          <Route
+            path='/'
+            render={(props) => <MainPage {...props} URLs={this.state.games} />}
+           />
+{/*          <Route exact path='/' component={MainPage} URLs={this.state.games} />  */}
           <Route exact path='/ReviewsPage/' component={ReviewsPage} />
         </Switch>
       </div>

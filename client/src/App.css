@@ -1,8 +1,9 @@
 .aApp {
-  font-size: 12pt;
+  font-size: 23px;
   position: absolute;
   height: 100%;
   width: 100%;
+  font-family: 'Roboto', sans-serif;
 }
 
 .aHeader {

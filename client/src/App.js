@@ -62,7 +62,7 @@ class App extends Component {
       <div className="aApp">
         <nav className="aHeader">
           <div className="aLogoBox">
-            <Link to="/" className="aLogo">True Gamer</Link>
+            <Link to="/" className="aLogo"><h1>True Gamer</h1></Link>
           </div>
           <div className="aLinkBox">
             <Link to="/" className="aNavLink">Home</Link>
@@ -72,9 +72,8 @@ class App extends Component {
         <Switch>
           <Route
             path='/'
-            render={(props) => <MainPage {...props} URLs={this.state.games} />}
+            render={(props) => <MainPage {...props} Games={this.state.games} />}
            />
-{/*          <Route exact path='/' component={MainPage} URLs={this.state.games} />  */}
           <Route exact path='/ReviewsPage/' component={ReviewsPage} />
         </Switch>
       </div>

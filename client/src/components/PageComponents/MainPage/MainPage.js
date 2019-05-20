@@ -6,7 +6,7 @@ import ContentItemSmall from '../../OtherComponents/ContentItemSmall/ContentItem
 import './MainPage.css';
 
 //props:
-//  URLs={}
+//  Games={}
 
 class MainPage extends Component {
   render() {
@@ -14,9 +14,11 @@ class MainPage extends Component {
       <div className="mpMainPage">
         <div className="mpContentOuterBox">
           <div className="mpContentInnerBox">
-           {this.props.URLs.map((address) => (
+           {this.props.Games.map((game) => (
             <ContentItemSmall 
-              SmallImage={address.coverURL}
+              SmallImage={game.coverURL}
+              SmallName={game.name}
+              SmallSummary={game.summary}
             />
             ))}
           </div>

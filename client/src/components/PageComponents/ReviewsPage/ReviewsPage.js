@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-//import { Link } from 'react-router-dom'
 
 import './ReviewsPage.css';
+
+import Header from '../../OtherComponents/Header/Header.js';
+import Forms from '../../OtherComponents/Forms/Forms.js';
 
 class ReviewsPage extends Component {
   render() {
     return (
-      <div className="ReviewsPage">
-       <img alt="" src="https://images.app.goo.gl/KFMeAj4Pm9BryrJX9" />
+      <div className="rpReviewsPage">
+        <Header />
+        <Forms />
       </div>
     );
   }

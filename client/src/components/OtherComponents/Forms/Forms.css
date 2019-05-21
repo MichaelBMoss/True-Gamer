@@ -1,0 +1,40 @@
+.Forms {
+  height: 100%;
+}
+
+.FormsOuterBox {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+.FormInnerBox {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.FormNameBox {
+  width: 20%;
+}
+
+.FormGameBox {
+  margin-top: 2%;
+  width: 20%;
+}
+
+.FormReviewBox {
+  margin-top: 2%;
+  height: 30%;
+}
+
+.FormPostButton {
+  margin-top: 2%;
+  width: 5%;
+}
+

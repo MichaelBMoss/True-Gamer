@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Switch, Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 
 import './App.css';
 
@@ -16,7 +16,6 @@ class App extends Component {
 		fetch("/games/")
 			.then(response => response.json())
 			.then(gamesData => {
-				console.log("got games",gamesData);
 					let forbiddenGames = [];
 		    	let acceptedGames = [];
 		    	for (let object of gamesData) {
@@ -32,7 +31,6 @@ class App extends Component {
 				    gamesIDArray.push(game.id)
 				  }
 				  let gameIDs = gamesIDArray.join(',');
-				  console.log('ids',gameIDs)
 			 fetch("/covers/?gameIds=" + gameIDs)
 	    	.then(response => response.json())
 	    	.then(coversData => {
@@ -44,7 +42,6 @@ class App extends Component {
             }
           }
 	    	  console.log('accepted games',acceptedGamesSlice);
-		    	console.log("got covers", coversData);
 		    	this.setState({
 		    	  games: acceptedGamesSlice,
 		    	});
@@ -53,25 +50,12 @@ class App extends Component {
 	    });
   }
   
-//	sortData = () => {
-//    console.log('sorting');
-//	}
-  
   render() {
     return (
       <div className="aApp">
-        <nav className="aHeader">
-          <div className="aLogoBox">
-            <Link to="/" className="aLogo"><h1>True Gamer</h1></Link>
-          </div>
-          <div className="aLinkBox">
-            <Link to="/" className="aNavLink">Home</Link>
-            <Link to="/ReviewsPage/" className="aNavLink">Reviews</Link>
-          </div> {/* end LinkBox */}
-        </nav>
         <Switch>
           <Route
-            path='/'
+            path='/MainPage/'
             render={(props) => <MainPage {...props} Games={this.state.games} />}
            />
           <Route exact path='/ReviewsPage/' component={ReviewsPage} />

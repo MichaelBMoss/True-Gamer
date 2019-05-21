@@ -30,7 +30,7 @@ app.get('/covers/', (request, res) => {
   
   const query = request.query || {};
   let gameIds = query.gameIds;
-  let fields = "fields image_id,height; where game = (" + gameIds + "); limit 25;"
+  let fields = "fields image_id; where game = (" + gameIds + "); limit 25;"
 
   axios({
     url: "https://api-v3.igdb.com/covers/",

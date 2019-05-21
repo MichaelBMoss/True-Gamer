@@ -3,48 +3,6 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  font-family: 'Roboto', sans-serif;
-}
-
-.aHeader {
-  width: 100%;
-  height: 10%;
-  background: black;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-}
-
-.aLogoBox {
-  height: 100%;
-  width: 25%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.aLinkBox {
-  height: 100%;
-  width: 25%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.aLogo {
-  text-decoration: none;
-  color: white;
-  font-size: 20pt;
-}
-
-.aNavLink {
-  text-decoration: none;
-  color: white;
 }
 
 

@@ -16,3 +16,10 @@
 .ReviewsPage a {
   color: #61dafb;
 }
+.Reviews{
+  display: flex;
+  flex-directon: column;
+  justify-content: center;
+  align-content: center;
+  color: white
+}

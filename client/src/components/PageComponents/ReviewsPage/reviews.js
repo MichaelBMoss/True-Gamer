@@ -1,41 +1,30 @@
 import React, { Component } from 'react';
+import ReviewsPage from './ReviewsPage';
 
-class Reviews extends Component {
-    state = {
-      reviews: [],
-    }
-  
-    componentDidMount() {
-      this.fetchReviews();
-    }
-  
-    fetchReviews() {
-      console.log('Fetching data - review');
-      fetch('gamer_review.json')
-        .then(response => response.json())
-        .then(data => {
-          console.log('Got data back', data);
-          this.setState({
-            reviews: data.reviews,
-          });
-        });
-    }
+class reviews extends Component {
 
-    render() {
+    render () {
         return (
-          <div className="Reviews">
+          <div className="reviews">
             <h1>Gamer Reviews</h1>
-            {
-              this.state.reviews.map((post, _index) => (
-                <Gamer-Reviews username={post.username} title={post.title} review={post.review}>
-                  {/* <Link to={'./ReviewsPage/' + this.fetchReviews }>Read this review...</Link> */}
-                </Gamer-Reviews>
-              ))
-            }
-          </div>
+            <h3> userName={this.props.username}</h3>
+            <h2>game={this.props.game}</h2>
+            <p>review={this.props.review}</p>
+            </div>
         );
       }
-    }
+
+            
+              // this.state.reviews.map((post, _index) => (
+              //   <Gamer-Reviews username={post.username} title={post.title} review={post.review}>
+              //     {/* <Link to={'./ReviewsPage/' + this.fetchReviews }>Read this review...</Link> */}
+              //   </Gamer-Reviews>
+              // ))
+            
+        
+      
     
-    export default Reviews;
+    
+  }
+    export default reviews;
     

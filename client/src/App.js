@@ -12,18 +12,19 @@ class App extends Component {
   	apiData: [],
 	}
 
-/*	componentDidMount() {
-		fetch("/api/some/example/route/");
-			    .then(response => response.json())
-			    .then(data => {
-        console.log("got data", data);*/
+	// componentDidMount() {
+	// 	fetch("/api/some/example/route/");
+  //       .then(response => response.json())
+  //           return()
+	// 		    .then(data => {
+  //       console.log("got data", data);
  
-/*				this.setState({
-					apiData: data,
-				});
-			});
-		console.log('fetch');
-  }*/
+	// 			this.setState({
+	// 				apiData: data,
+	// 			});
+	// 		});
+	// 	console.log('fetch');
+  // }
   
   render() {
     return (

@@ -16,9 +16,11 @@
 .ReviewsPage a {
   color: #61dafb;
 }
-.Reviews{
+
+
+.GameReview{
   display: flex;
-  flex-directon: column;
+  flex-direction: column;
   justify-content: center;
   align-content: center;
   color: white

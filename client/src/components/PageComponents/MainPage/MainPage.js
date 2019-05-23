@@ -10,6 +10,7 @@ import './MainPage.css';
 //  Games={}
 
 class MainPage extends Component {
+
   render() {
     return (
       <div className="mpMainPage">

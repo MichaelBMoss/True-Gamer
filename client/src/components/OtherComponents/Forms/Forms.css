@@ -21,16 +21,19 @@
 
 .FormNameBox {
   width: 20%;
+  font-size: 12pt;
 }
 
 .FormGameBox {
   margin-top: 2%;
   width: 20%;
+  font-size: 12pt;
 }
 
 .FormReviewBox {
   margin-top: 2%;
   height: 30%;
+  font-size: 12pt;
 }
 
 .FormPostButton {
@@ -38,3 +41,10 @@
   width: 5%;
 }
 
+.ReviewsTitle {
+  border-bottom: 1px solid grey;
+}
+
+.Review {
+  border-bottom: 1px solid grey;
+}

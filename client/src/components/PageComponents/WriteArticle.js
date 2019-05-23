@@ -3,8 +3,16 @@ import './WriteArticle.css';
 
 class WriteArticle extends Component {
   state = {
-    title: 'True Gamer',
-    text: 'true gamer',
+    user: '',
+    text: '',
+    game: '',
+    title: '',
+  }
+
+  onChangeUserName = (ev) => {
+    this.setState({
+      user: ev.target.value,
+    });
   }
 
   onChangeReview = (ev) => {
@@ -13,29 +21,27 @@ class WriteArticle extends Component {
     });
   }
 
-  onChangeName = (ev) => {
-    this.setState({
-      title: ev.target.value,
-    });
-  }
-  
+ 
   
   onChangeGame = (ev) => {
     this.setState({
-      title: ev.target.value,
+      game: ev.target.value,
     });
   }
 
 
   submit = () => {
-   console.log("games")
     const formData = {
       title: this.state.title,
       text: this.state.text,
+      game: this.state.game
      
     };
+    
+    
+   console.log("games", formData);
 
-    fetch('/api/mongodb/blogposts/', {
+    fetch('/api/mongodb/testCollection/', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(formData),
@@ -56,19 +62,20 @@ class WriteArticle extends Component {
         <h1>Write an article</h1>
         <div className="flex-container">
         <input
-            name="name"
-            placeholder="Name"
-            value={this.state.name}
-            onChange={this.onChangeName}
+            placeholder="User Name"
+            value={this.state.user}
+            onChange={() => this.onChangeUserName()}
           
           />
+          
         <br />
+
           <div>
         <input
             name="game"
             placeholder="Game"
             value={this.state.game}
-            onChange={this.onChangeGame}
+            onChange={this.onChangeGame.bind(this)}
           />
         <br />
         </div>
@@ -76,7 +83,7 @@ class WriteArticle extends Component {
         <textarea
             name="reviews"
             placeholder="Reviews"
-            value={this.state.details}
+            value={this.state.text}
             onChange={this.onChangeReview}
           />
           <div>
@@ -84,7 +91,7 @@ class WriteArticle extends Component {
         <br />
         
 
-        <button onClick={this.submit}>Add to blog</button>
+        <button onClick={() => this.submit()}>Add to blog reviews</button>
       </div>
       </div>
 

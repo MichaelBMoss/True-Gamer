@@ -10,7 +10,7 @@ app.use(express.json());
 
 //
 // Example route (without use of MongoDB)
-app.get('/api/some/example/route/', (request, res) => {
+app.get('', (request, res) => {
   console.log('Example route is being used...');
   /// YOUR ROUTES GO HERE!
   axios({

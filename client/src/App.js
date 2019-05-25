@@ -55,7 +55,7 @@ class App extends Component {
       <div className="aApp">
         <Switch>
           <Route
-            path='/MainPage/'
+            exact path='/'
             render={(props) => <MainPage {...props} Games={this.state.games} />}
            />
           <Route exact path='/ReviewsPage/' component={ReviewsPage} />

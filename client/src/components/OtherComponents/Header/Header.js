@@ -7,10 +7,10 @@ class Header extends Component {
     return (
       <div className="Header">
         <div className="LogoBox">
-          <Link to="/MainPage/" className="Logo"><h1>True Gamer</h1></Link>
+          <Link to="/" className="Logo"><h1>True Gamer</h1></Link>
         </div>
         <div className="LinkBox">
-          <Link to="/MainPage/" className="NavLink">Home</Link>
+          <Link to="/" className="NavLink">Home</Link>
           <Link to="/ReviewsPage/" className="NavLink">Reviews</Link>
         </div> {/* end LinkBox */}
       </div>
